@@ -27,7 +27,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f4f6f8;color:#222;m
 .page{display:none;padding:16px;flex:1}
 .page.active{display:block}
 .scan-hero{text-align:center;padding:24px 0}
-.scan-btn{width:120px;height:120px;border-radius:50%;background:linear-gradient(145deg,#28a745,#20c997);color:white;border:none;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(40,167,69,.4);transition:transform .2s,box-shadow .2s;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.scan-btn{width:120px;height:120px;border-radius:50%;background:linear-gradient(145deg,#1a3c6e,#20c997);color:white;border:none;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(40,167,69,.4);transition:transform .2s,box-shadow .2s;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
 .scan-btn:active{transform:scale(.93);box-shadow:0 2px 8px rgba(40,167,69,.3)}
 .scan-btn.scanning{background:linear-gradient(145deg,#ffc107,#fd7e14);animation:pulse 1.5s infinite}
 .scan-btn .icon{font-size:36px}
@@ -35,7 +35,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f4f6f8;color:#222;m
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,193,7,.5)}70%{box-shadow:0 0 0 20px rgba(255,193,7,0)}100%{box-shadow:0 0 0 0 rgba(255,193,7,0)}}
 .gps-status{font-size:12px;color:#888;margin-top:12px}
 .gps-status .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#ccc;margin-right:6px}
-.gps-status.active .dot{background:#28a745;animation:pulse-dot 1.5s infinite}
+.gps-status.active .dot{background:#1a3c6e;animation:pulse-dot 1.5s infinite}
 @keyframes pulse-dot{50%{opacity:.4}}
 .qh-list{margin-top:16px}
 .qh-card{background:white;border-radius:8px;padding:14px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.08);cursor:pointer;transition:transform .15s}
@@ -59,7 +59,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f4f6f8;color:#222;m
 .form-row input,.form-row textarea,.form-row select{width:100%;padding:8px 10px;border:1px solid #ddd;border-radius:4px;font-size:13px}
 .form-row input:focus,.form-row textarea:focus{outline:none;border-color:#d71920}
 .form-row textarea{resize:vertical;min-height:60px}
-.btn-submit{width:100%;padding:12px;background:#28a745;color:white;border:none;border-radius:6px;font-size:14px;font-weight:700;cursor:pointer;margin-top:8px}
+.btn-submit{width:100%;padding:12px;background:#1a3c6e;color:white;border:none;border-radius:6px;font-size:14px;font-weight:700;cursor:pointer;margin-top:8px}
 .btn-submit:active{background:#218838}
 .timeline{background:white;border-radius:8px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
 .timeline h4{font-size:14px;color:#d71920;margin-bottom:12px;border-bottom:1px solid #eee;padding-bottom:8px}
@@ -79,7 +79,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f4f6f8;color:#222;m
 .dash-table td{padding:8px;border-bottom:1px solid #eee}
 .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#333;color:white;padding:10px 20px;border-radius:20px;font-size:13px;z-index:9999;opacity:0;transition:opacity .3s}
 .toast.show{opacity:1}
-.toast.success{background:#28a745}
+.toast.success{background:#1a3c6e}
 .toast.error{background:#dc3545}
 .loading{text-align:center;padding:32px;color:#888}
 .spinner{display:inline-block;width:32px;height:32px;border:3px solid #e0e0e0;border-top-color:#d71920;border-radius:50%;animation:spin .8s linear infinite}
@@ -446,7 +446,7 @@ async function loadDashboard() {
     document.getElementById('dashStats').innerHTML =
       '<div class="stat-card"><div class="num">' + s.daKhaoSat + '</div><div class="lbl">✅ Da khao sat</div></div>' +
       '<div class="stat-card"><div class="num">' + total + '</div><div class="lbl">📍 Tong diem QH</div></div>' +
-      '<div class="stat-card"><div class="num" style="color:#28a745">' + pct + '%</div><div class="lbl">Ty le</div></div>';
+      '<div class="stat-card"><div class="num" style="color:#1a3c6e">' + pct + '%</div><div class="lbl">Ty le</div></div>';
     const recent = s.recentSurveys || [];
     let rows = '';
     for (let i = 0; i < recent.length; i++) {
