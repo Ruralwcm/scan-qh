@@ -5,24 +5,25 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 <title>Scan Điểm QH — TKMB v1.0</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=IBM+Plex+Sans+Condensed:wght@400;600;700&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:#f0f2f5;color:#222;min-height:100vh}
-.login-wrap{display:flex;align-items:center;justify-content:center;min-height:100vh;background:linear-gradient(135deg,#1a3a5c,#1F4E79)}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f4f6f8;color:#222;min-height:100vh}
+.login-wrap{display:flex;align-items:center;justify-content:center;min-height:100vh;background:linear-gradient(135deg,#1a3a5c,#0f5f57)}
 .login-card{background:white;border-radius:12px;padding:32px 24px;width:100%;max-width:380px;box-shadow:0 8px 32px rgba(0,0,0,.2)}
-.login-card h2{font-size:22px;color:#1F4E79;margin-bottom:4px}
+.login-card h2{font-size:22px;color:#0f5f57;margin-bottom:4px}
 .login-card .sub{font-size:13px;color:#888;margin-bottom:24px}
 .login-card label{display:block;font-size:13px;font-weight:600;color:#555;margin-bottom:4px}
 .login-card input{width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:6px;font-size:14px;margin-bottom:14px}
-.login-card input:focus{outline:none;border-color:#1F4E79;box-shadow:0 0 0 3px rgba(31,78,121,.15)}
+.login-card input:focus{outline:none;border-color:#0f5f57;box-shadow:0 0 0 3px rgba(31,78,121,.15)}
 .err-msg{color:#dc3545;font-size:12px;margin-bottom:8px;display:none}
 .app-wrap{display:none;flex-direction:column;min-height:100vh}
-.topbar{background:#1F4E79;color:white;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.topbar{background:#0f5f57;color:white;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
 .topbar .title{font-size:16px;font-weight:700}
 .topbar .user{font-size:12px;opacity:.85}
 .topbar button{background:rgba(255,255,255,.2);color:white;border:none;padding:6px 12px;border-radius:4px;font-size:12px;cursor:pointer}
 .tabs{display:flex;background:white;border-bottom:1px solid #e0e0e0;position:sticky;top:48px;z-index:99}
 .tab{padding:12px 16px;font-size:13px;font-weight:600;color:#888;border-bottom:2px solid transparent;cursor:pointer;text-align:center;flex:1}
-.tab.active{color:#1F4E79;border-bottom-color:#1F4E79}
+.tab.active{color:#0f5f57;border-bottom-color:#0f5f57}
 .page{display:none;padding:16px;flex:1}
 .page.active{display:block}
 .scan-hero{text-align:center;padding:24px 0}
@@ -39,38 +40,38 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f0f2f5;color:#222;m
 .qh-list{margin-top:16px}
 .qh-card{background:white;border-radius:8px;padding:14px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.08);cursor:pointer;transition:transform .15s}
 .qh-card:active{transform:scale(.98)}
-.qh-card .qh-code{font-weight:700;font-size:15px;color:#1F4E79}
+.qh-card .qh-code{font-weight:700;font-size:15px;color:#0f5f57}
 .qh-card .qh-addr{font-size:12px;color:#666;margin-top:2px}
 .qh-card .qh-meta{display:flex;gap:8px;margin-top:6px;flex-wrap:wrap}
 .qh-badge{padding:2px 8px;border-radius:10px;font-size:10px;font-weight:600}
-.qh-badge.info{background:#e8f0fe;color:#1F4E79}
+.qh-badge.info{background:#e8f0fe;color:#0f5f57}
 .qh-badge.near{background:#d4edda;color:#155724}
 .no-results{text-align:center;padding:32px 16px;color:#888;font-size:14px}
-.back-btn{background:none;border:none;color:#1F4E79;font-size:14px;font-weight:600;cursor:pointer;padding:0;display:flex;align-items:center;gap:4px;margin-bottom:16px}
+.back-btn{background:none;border:none;color:#0f5f57;font-size:14px;font-weight:600;cursor:pointer;padding:0;display:flex;align-items:center;gap:4px;margin-bottom:16px}
 .detail-header{background:white;border-radius:8px;padding:16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
-.detail-header h3{font-size:16px;color:#1F4E79}
+.detail-header h3{font-size:16px;color:#0f5f57}
 .detail-header .info-row{font-size:13px;color:#666;margin-top:4px}
 .survey-form{background:white;border-radius:8px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.08);margin-bottom:12px}
-.survey-form h4{font-size:14px;color:#1F4E79;margin-bottom:12px;border-bottom:1px solid #eee;padding-bottom:8px}
+.survey-form h4{font-size:14px;color:#0f5f57;margin-bottom:12px;border-bottom:1px solid #eee;padding-bottom:8px}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
 .form-row.full{grid-template-columns:1fr}
 .form-row label{display:block;font-size:11px;font-weight:600;color:#555;margin-bottom:2px}
 .form-row input,.form-row textarea,.form-row select{width:100%;padding:8px 10px;border:1px solid #ddd;border-radius:4px;font-size:13px}
-.form-row input:focus,.form-row textarea:focus{outline:none;border-color:#1F4E79}
+.form-row input:focus,.form-row textarea:focus{outline:none;border-color:#0f5f57}
 .form-row textarea{resize:vertical;min-height:60px}
 .btn-submit{width:100%;padding:12px;background:#28a745;color:white;border:none;border-radius:6px;font-size:14px;font-weight:700;cursor:pointer;margin-top:8px}
 .btn-submit:active{background:#218838}
 .timeline{background:white;border-radius:8px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
-.timeline h4{font-size:14px;color:#1F4E79;margin-bottom:12px;border-bottom:1px solid #eee;padding-bottom:8px}
+.timeline h4{font-size:14px;color:#0f5f57;margin-bottom:12px;border-bottom:1px solid #eee;padding-bottom:8px}
 .tl-item{position:relative;padding-left:24px;padding-bottom:16px;border-left:2px solid #e0e0e0}
 .tl-item:last-child{border-left-color:transparent}
-.tl-item::before{content:'';position:absolute;left:-6px;top:4px;width:10px;height:10px;border-radius:50%;background:#1F4E79}
+.tl-item::before{content:'';position:absolute;left:-6px;top:4px;width:10px;height:10px;border-radius:50%;background:#0f5f57}
 .tl-date{font-size:11px;color:#888}
 .tl-body{font-size:13px;color:#333;margin-top:2px}
 .tl-meta{font-size:11px;color:#888;margin-top:2px}
 .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:16px}
 .stat-card{background:white;border-radius:8px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,.08);text-align:center}
-.stat-card .num{font-size:26px;font-weight:700;color:#1F4E79}
+.stat-card .num{font-size:26px;font-weight:700;color:#0f5f57}
 .stat-card .lbl{font-size:11px;color:#888;margin-top:2px}
 .dash-table{background:white;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08)}
 .dash-table table{width:100%;border-collapse:collapse;font-size:12px}
@@ -81,9 +82,19 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f0f2f5;color:#222;m
 .toast.success{background:#28a745}
 .toast.error{background:#dc3545}
 .loading{text-align:center;padding:32px;color:#888}
-.spinner{display:inline-block;width:32px;height:32px;border:3px solid #e0e0e0;border-top-color:#1F4E79;border-radius:50%;animation:spin .8s linear infinite}
+.spinner{display:inline-block;width:32px;height:32px;border:3px solid #e0e0e0;border-top-color:#0f5f57;border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 @media (max-width:480px){.form-row{grid-template-columns:1fr}.scan-btn{width:100px;height:100px}.stats-grid{grid-template-columns:1fr 1fr}}
+
+@media (prefers-color-scheme: dark) {
+  body{background:#0f1724;color:#e8ecf1}
+  .card,.stat-card,.app-card,.modal,.confirm-box,.login-box{background:#1a2332;border-color:#2a3646}
+  thead th{background:#1a2332;color:#cbd5e1;border-bottom-color:#2a3646}
+  td{border-bottom-color:#2a3646}
+  .sidebar{background:#0a2a24}
+  .topbar{background:#b3121b}
+  input,select,textarea{background:#1a2332;color:#e8ecf1;border-color:#2a3646}
+}
 </style>
 </head>
 <body>
@@ -124,13 +135,13 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f0f2f5;color:#222;m
   <div class="page" id="pageDashboard">
     <div class="stats-grid" id="dashStats"></div>
     <div class="dash-table" style="margin-top:12px">
-      <div style="padding:12px;font-weight:600;font-size:13px;color:#1F4E79;border-bottom:1px solid #eee">🕒 Khao sat gan day</div>
+      <div style="padding:12px;font-weight:600;font-size:13px;color:#0f5f57;border-bottom:1px solid #eee">🕒 Khao sat gan day</div>
       <table id="dashRecent"></table>
     </div>
   </div>
 </div>
 
-<div id="detailOverlay" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#f0f2f5;z-index:200;overflow-y:auto">
+<div id="detailOverlay" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#f4f6f8;z-index:200;overflow-y:auto">
   <div style="padding:16px">
     <button class="back-btn" onclick="closeDetail()">← Quay ve</button>
     <div id="detailContent"></div>
@@ -298,7 +309,7 @@ function haversine(lat1, lng1, lat2, lng2) {
 }
 
 function renderNearbyResults(nearby) {
-  let html = '<div style="font-weight:600;font-size:14px;color:#1F4E79;margin-bottom:8px">✅ Tim thay ' + nearby.length + ' diem QH trong ' + SCAN_RADIUS_M + 'm</div>';
+  let html = '<div style="font-weight:600;font-size:14px;color:#0f5f57;margin-bottom:8px">✅ Tim thay ' + nearby.length + ' diem QH trong ' + SCAN_RADIUS_M + 'm</div>';
   for (let i = 0; i < nearby.length; i++) {
     const p = nearby[i];
     html += '<div class="qh-card" onclick="openDetail(\'' + p.qh + '\')">' +
